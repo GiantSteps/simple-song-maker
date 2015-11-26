@@ -1,0 +1,17 @@
+A:maj
+Gb:min
+D:maj
+E:maj
+A:maj
+Gb:min
+D:maj
+E:maj
+A:maj
+F:min
+D:maj
+E:maj
+A:maj
+F:min
+D:maj
+E:maj
+A:maj
