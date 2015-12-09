@@ -1,4 +1,4 @@
-#N canvas 478 31 782 289 10;
+#N canvas -1 447 782 289 10;
 #X obj 724 19 bng 50 250 50 0 make_song set-make_song empty 17 7 0
 10 -262144 -261234 -1;
 #X obj 4 79 cnv 15 770 30 empty verse1_canvas ||: C:maj D:min F:maj G:maj F:maj G:maj A:min :||
@@ -6,7 +6,7 @@
 #X obj 4 110 cnv 15 770 30 empty chorus1_canvas || G:maj A:min A:min F:maj ||
 5 15 0 14 -66577 -262144 0;
 #X obj 4 19 hradio 50 1 0 12 key_root set-key_root empty 0 -8 0 10
--262144 -261234 -1 5;
+-262144 -261234 -1 0;
 #X text 26 36 C;
 #X text 74 36 Db;
 #X text 126 36 D;
@@ -127,7 +127,7 @@ a corpus before use.;
 \, something that will be expanded in future versions:;
 #X text 400 9 USAGE;
 #X restore 339 258 pd notes and instructions;
-#N canvas 562 468 412 159 guts 1;
+#N canvas 562 468 412 159 guts 0;
 #N canvas 47 143 442 231 krumhansl_profiles 0;
 #X msg 5 124 6.33 2.68 3.52 5.38 2.6 3.53 2.54 4.75 3.98 2.69 3.34
 3.17;
