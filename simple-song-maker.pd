@@ -1,12 +1,12 @@
-#N canvas 2 88 782 289 10;
+#N canvas 478 31 782 289 10;
 #X obj 724 19 bng 50 250 50 0 make_song set-make_song empty 17 7 0
 10 -262144 -261234 -1;
-#X obj 4 79 cnv 15 770 30 empty verse1_canvas ||: 5 15 0 14 -66577
--262144 0;
-#X obj 4 110 cnv 15 770 30 empty chorus1_canvas || 5 15 0 14 -66577
--262144 0;
+#X obj 4 79 cnv 15 770 30 empty verse1_canvas ||: C:maj D:min F:maj G:maj F:maj G:maj A:min :||
+5 15 0 14 -66577 -262144 0;
+#X obj 4 110 cnv 15 770 30 empty chorus1_canvas || G:maj A:min A:min F:maj ||
+5 15 0 14 -66577 -262144 0;
 #X obj 4 19 hradio 50 1 0 12 key_root set-key_root empty 0 -8 0 10
--262144 -261234 -1 0;
+-262144 -261234 -1 5;
 #X text 26 36 C;
 #X text 74 36 Db;
 #X text 126 36 D;
@@ -35,10 +35,10 @@
 #X text 38 233 analyze folder (it might take a few seconds!);
 #X text 737 31 make;
 #X text 736 43 song;
-#X obj 4 141 cnv 15 770 30 empty verse2_canvas || 5 15 0 14 -66577
--262144 0;
-#X obj 4 172 cnv 15 770 30 empty chorus2_canvas ||: 5 15 0 14 -66577
--262144 0;
+#X obj 4 141 cnv 15 770 30 empty verse2_canvas || C:maj D:min F:maj G:maj F:maj G:maj A:min ||
+5 15 0 14 -66577 -262144 0;
+#X obj 4 172 cnv 15 770 30 empty chorus2_canvas ||: G:maj A:min A:min F:maj :|| C:maj ||
+5 15 0 14 -66577 -262144 0;
 #X obj 333 209 cnv 15 220 70 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X obj 337 213 bng 15 250 50 0 write_song empty empty 17 7 0 10 -262144
@@ -59,14 +59,14 @@ empty 0 -8 0 10 -262144 -1 -1 6 256;
 #X text 586 244 song;
 #X obj 600 83 cnv 15 170 115 empty empty empty 20 12 0 14 -261234 -66577
 0;
-#X symbolatom 604 105 3 0 0 0 - set-str1 str1, f 3;
-#X symbolatom 624 105 3 0 0 0 - set-str2 str2, f 3;
-#X symbolatom 644 105 3 0 0 0 - set-str3 str3, f 3;
-#X symbolatom 664 105 3 0 0 0 - set-str4 str4, f 3;
-#X symbolatom 684 105 3 0 0 0 - set-str5 str5, f 3;
-#X symbolatom 704 105 3 0 0 0 - set-str6 str6, f 3;
-#X symbolatom 724 105 3 0 0 0 - set-str7 str7, f 3;
-#X symbolatom 744 105 3 0 0 0 - set-str8 str8, f 3;
+#X symbolatom 604 105 3 0 0 0 - set-str1 str1;
+#X symbolatom 624 105 3 0 0 0 - set-str2 str2;
+#X symbolatom 644 105 3 0 0 0 - set-str3 str3;
+#X symbolatom 664 105 3 0 0 0 - set-str4 str4;
+#X symbolatom 684 105 3 0 0 0 - set-str5 str5;
+#X symbolatom 704 105 3 0 0 0 - set-str6 str6;
+#X symbolatom 724 105 3 0 0 0 - set-str7 str7;
+#X symbolatom 744 105 3 0 0 0 - set-str8 str8;
 #X text 605 85 strumming pattern;
 #X text 605 124 d - down;
 #X text 605 137 u - up;
@@ -139,8 +139,8 @@ a corpus before use.;
 #X obj 31 104 table major 12;
 #X obj 5 164 tabset minor;
 #X obj 5 184 table minor 12;
-#X obj 32 64 pd-symbolic/normalize;
-#X obj 5 144 pd-symbolic/normalize;
+#X obj 32 64 abs/normalize;
+#X obj 5 144 abs/normalize;
 #X connect 0 0 9 0;
 #X connect 1 0 8 0;
 #X connect 2 0 0 0;
@@ -267,8 +267,8 @@ a corpus before use.;
 #X msg 300 177 0;
 #X obj 289 47 t b b;
 #X msg 328 47 0;
-#X obj 42 134 pd-symbolic/get_files /txt-chords/*.txt;
-#X obj 165 346 pd-symbolic/normalize;
+#X obj 42 134 abs/get_files /txt-chords/*.txt;
+#X obj 165 346 abs/normalize;
 #X obj 32 328 cyclone/tosymbol;
 #X obj 32 351 jasch_lib/strtok :;
 #X connect 0 0 40 0;
@@ -439,8 +439,8 @@ a corpus before use.;
 #X obj 120 503 r reset;
 #X obj 180 725 print ESTIMATION;
 #X obj 28 85 iemlib/once;
-#X obj 147 260 pd-symbolic/euclidean_distance;
-#X obj 129 239 pd-symbolic/list_rotate;
+#X obj 147 260 abs/euclidean_distance;
+#X obj 129 239 abs/list_rotate;
 #X obj 133 11 drip 1;
 #X connect 0 0 31 0;
 #X connect 0 1 32 0;
@@ -536,7 +536,7 @@ a corpus before use.;
 #X text 70 769 we could print transitions here...;
 #X obj 226 650 iemlib/once;
 #X obj 276 71 cyclone/fromsymbol;
-#X obj 199 228 pd-symbolic/key2pc;
+#X obj 199 228 abs/key2pc;
 #X obj 193 419 cyclone/prepend;
 #X connect 0 0 7 0;
 #X connect 0 1 2 0;
@@ -1742,7 +1742,7 @@ a corpus before use.;
 #X obj 101 357 + 1;
 #X obj 101 415 list 0 48 52 55 60 64;
 #X obj 283 425 l2s;
-#X symbolatom 283 449 20 0 0 0 - - -, f 20;
+#X symbolatom 283 449 20 0 0 0 - - -;
 #X obj 101 461 list prepend;
 #X obj 170 440 == 6;
 #X obj 101 483 route 1 0;
